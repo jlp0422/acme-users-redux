@@ -23,6 +23,13 @@ app.post('/api/users', (req, res, next) => {
     .catch(next)
 })
 
+app.delete('/api/users/:id', (req, res, next) => {
+  User.findById(req.params.id * 1)
+    .then( user => user.destroy())
+    .then(() => res.sendStatus(200))
+    .catch(next)
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`listening on port ${port}`))
 
