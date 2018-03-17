@@ -3697,11 +3697,11 @@ var UserCreate = function (_React$Component) {
         { style: { marginBottom: 20 } },
         _react2.default.createElement(
           'form',
-          { onSubmit: onUserAdd },
-          _react2.default.createElement('input', { onChange: onChange, value: newName }),
+          { className: 'form-group', onSubmit: onUserAdd },
+          _react2.default.createElement('input', { className: 'form-control', onChange: onChange, value: newName }),
           _react2.default.createElement(
             'button',
-            null,
+            { style: { marginTop: 10 }, className: 'btn btn-success' },
             'Add User'
           )
         )
@@ -24908,11 +24908,11 @@ var Users = function (_React$Component) {
         _react2.default.createElement(_UserCreate2.default, null),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: 'list-group' },
           users && users.map(function (user) {
             return _react2.default.createElement(
               'li',
-              { key: user.id },
+              { className: 'list-group-item', style: {}, key: user.id },
               user.name,
               '\xA0\xA0',
               _react2.default.createElement(
@@ -24920,7 +24920,7 @@ var Users = function (_React$Component) {
                 { to: '/users/' + user.id },
                 _react2.default.createElement(
                   'button',
-                  { onClick: function onClick() {
+                  { className: 'btn btn-outline-success', onClick: function onClick() {
                       return onEditUser(user);
                     } },
                   'Edit'
@@ -24929,13 +24929,11 @@ var Users = function (_React$Component) {
               '\xA0\xA0',
               _react2.default.createElement(
                 'button',
-                { onClick: function onClick() {
+                { className: 'btn btn-outline-danger', onClick: function onClick() {
                     return onDeleteUser(user.id);
                   } },
                 'Delete'
-              ),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement('br', null)
+              )
             );
           })
         )
@@ -26526,11 +26524,11 @@ var User = function (_React$Component) {
 
       return _react2.default.createElement(
         'form',
-        { onSubmit: onSaveUser },
-        _react2.default.createElement('input', { value: newName, onChange: onChange }),
+        { className: 'form-group', onSubmit: onSaveUser },
+        _react2.default.createElement('input', { className: 'form-control', value: newName, onChange: onChange }),
         _react2.default.createElement(
           'button',
-          null,
+          { style: { marginTop: 10 }, className: 'btn btn-primary' },
           'Save User'
         )
       );

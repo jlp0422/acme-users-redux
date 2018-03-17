@@ -50,18 +50,17 @@ export default class Users extends React.Component {
       <div>
         <h2>These are our users</h2>
         <UserCreate />
-        <ul>
+        <ul className="list-group">
           {
             users &&
             users.map( user => (
-              <li key={ user.id }>
+              <li className="list-group-item" style={{ }} key={ user.id }>
               {user.name}&nbsp;&nbsp;
               <Link to={`/users/${user.id}`}>
-                <button onClick={() => onEditUser(user)}>Edit</button>
+                <button className="btn btn-outline-success" onClick={() => onEditUser(user)}>Edit</button>
               </Link>
               &nbsp;&nbsp;
-              <button onClick={() => onDeleteUser(user.id)}>Delete</button>
-              <br /><br />
+              <button className="btn btn-outline-danger" onClick={() => onDeleteUser(user.id)}>Delete</button>
               </li>
             ))
           }

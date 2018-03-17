@@ -49,9 +49,9 @@ export default class User extends React.Component {
     const { onChange, onSaveUser } = this
     const { newName } = this.state
     return (
-      <form onSubmit={ onSaveUser }>
-        <input value={ newName } onChange={ onChange }/>
-        <button>Save User</button>
+      <form className="form-group" onSubmit={ onSaveUser }>
+        <input className="form-control" value={ newName } onChange={ onChange }/>
+        <button style={{ marginTop: 10 }}className="btn btn-primary">Save User</button>
       </form>
     )
   }
