@@ -3693,13 +3693,17 @@ var UserCreate = function (_React$Component) {
           onChange = this.onChange;
 
       return _react2.default.createElement(
-        'form',
-        { onSubmit: onUserAdd },
-        _react2.default.createElement('input', { onChange: onChange, value: newName }),
+        'div',
+        { style: { marginBottom: 20 } },
         _react2.default.createElement(
-          'button',
-          null,
-          'Add User'
+          'form',
+          { onSubmit: onUserAdd },
+          _react2.default.createElement('input', { onChange: onChange, value: newName }),
+          _react2.default.createElement(
+            'button',
+            null,
+            'Add User'
+          )
         )
       );
     }
@@ -26561,16 +26565,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Nav = function Nav() {
   return _react2.default.createElement(
     'div',
-    null,
+    { style: { marginBottom: 20 } },
     _react2.default.createElement(
       'ul',
-      null,
+      { className: 'nav nav-tabs' },
       _react2.default.createElement(
         'li',
-        null,
+        { className: 'nav-item' },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/users' },
+          { className: 'nav-link', to: '/users' },
           'Users'
         )
       ),
@@ -26579,7 +26583,7 @@ var Nav = function Nav() {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/users/create' },
+          { className: 'nav-link', to: '/users/create' },
           'Create User'
         )
       ),
@@ -26588,7 +26592,7 @@ var Nav = function Nav() {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/products' },
+          { className: 'nav-link', to: '/products' },
           'Products'
         )
       )
@@ -26619,7 +26623,7 @@ var Products = function Products() {
   return _react2.default.createElement(
     'h1',
     null,
-    'WE ARE ALL OUT OF PRODUCTS'
+    'WE ARE ALL OUT OF PRODUCTS. TRY AGAIN LATER.'
   );
 };
 

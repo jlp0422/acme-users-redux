@@ -42,10 +42,12 @@ export default class UserCreate extends React.Component {
     const { newName } = this.state
     const { onUserAdd, onChange } = this
     return (
-      <form onSubmit={onUserAdd}>
-        <input onChange={onChange} value={newName} />
-        <button>Add User</button>
-      </form>
+      <div style={{ marginBottom: 20 }}>
+        <form onSubmit={onUserAdd}>
+          <input onChange={onChange} value={newName} />
+          <button>Add User</button>
+        </form>
+      </div>
     )
   }
 }
