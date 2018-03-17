@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import store, { getAllUsers, changeUserName, updateUser } from './store';
+import store, { changeUserName, updateUser, selectUser } from './store';
 import axios from 'axios';
 
 export default class User extends React.Component {
@@ -12,12 +12,16 @@ export default class User extends React.Component {
   }
 
   componentDidMount() {
-
+    axios.get('/api/users')
+      .then(res => res.data)
+      .then(users => {
+        const userId = location.hash.split('/')[2]
+        const user = users.find(u => u.id === userId*1)
+        store.dispatch(selectUser(user))
+      })
     this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState())
     })
-    // console.log(this.state)
-    this.setState({ newName: store.getState().user.name})
   }
 
   componentWillUnmount() {

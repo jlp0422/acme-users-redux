@@ -1343,7 +1343,7 @@ var reducer = function reducer() {
     case 'DELETE_USER':
       return Object.assign({}, state, { users: action.users });
     case 'SELECT_USER':
-      return Object.assign({}, state, { user: action.user });
+      return Object.assign({}, state, { user: action.user, newName: action.user.name });
     case 'UPDATE_USER':
       return Object.assign({}, state, { newName: action.clear });
     default:
@@ -24862,7 +24862,6 @@ var Users = function (_React$Component) {
       this.unsubscribe = _store2.default.subscribe(function () {
         _this2.setState(_store2.default.getState());
       });
-      console.log(this.state);
     }
   }, {
     key: 'componentWillUnmount',
@@ -26473,11 +26472,18 @@ var User = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      _axios2.default.get('/api/users').then(function (res) {
+        return res.data;
+      }).then(function (users) {
+        var userId = location.hash.split('/')[2];
+        var user = users.find(function (u) {
+          return u.id === userId * 1;
+        });
+        _store2.default.dispatch((0, _store.selectUser)(user));
+      });
       this.unsubscribe = _store2.default.subscribe(function () {
         _this2.setState(_store2.default.getState());
       });
-      // console.log(this.state)
-      this.setState({ newName: _store2.default.getState().user.name });
     }
   }, {
     key: 'componentWillUnmount',

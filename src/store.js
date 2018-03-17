@@ -71,7 +71,7 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_USER':
       return Object.assign({}, state, { users: action.users });
     case 'SELECT_USER':
-      return Object.assign({}, state, { user: action.user });
+      return Object.assign({}, state, { user: action.user, newName: action.user.name });
     case 'UPDATE_USER':
       return Object.assign({}, state, { newName: action.clear })
     default:
