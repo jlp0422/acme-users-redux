@@ -30,6 +30,16 @@ app.delete('/api/users/:id', (req, res, next) => {
     .catch(next)
 })
 
+app.put('/api/users/:id', (req, res, next) => {
+  User.findById(req.params.id * 1)
+    .then( user => {
+      Object.assign(user, req.body)
+      return user.save()
+    })
+    .then( user => res.send(user))
+    .catch(next)
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`listening on port ${port}`))
 

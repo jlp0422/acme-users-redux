@@ -30,6 +30,7 @@ export default class UserCreate extends React.Component {
         const action = addUser(user)
         store.dispatch(action)
       })
+      .then(() => location.hash = '/users')
   }
 
   onChange(ev) {
@@ -38,11 +39,11 @@ export default class UserCreate extends React.Component {
   }
 
   render() {
-    const { onUserAdd, onChange } = this
     const { newName } = this.state
+    const { onUserAdd, onChange } = this
     return (
-      <form onSubmit={ onUserAdd }>
-        <input onChange={ onChange } value={ newName } />
+      <form onSubmit={onUserAdd}>
+        <input onChange={onChange} value={newName} />
         <button>Add User</button>
       </form>
     )

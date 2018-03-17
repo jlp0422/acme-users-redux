@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import store, { getAllUsers, deleteUser } from './store';
+import store, { deleteUser, selectUser, getAllUsers } from './store';
 import UserCreate from './UserCreate';
 
 export default class Users extends React.Component {
@@ -10,19 +10,19 @@ export default class Users extends React.Component {
     super()
     this.state = store.getState()
     this.onDeleteUser = this.onDeleteUser.bind(this)
+    this.onEditUser = this.onEditUser.bind(this)
   }
 
   componentDidMount() {
+    axios.get('/api/users')
+      .then(res => res.data)
+      .then(users => {
+        store.dispatch(getAllUsers(users))
+      })
     this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState())
     })
-
-    axios.get('/api/users')
-      .then( res => res.data)
-      .then( users => {
-        store.dispatch(getAllUsers(users))
-      })
-    }
+  }
 
   componentWillUnmount() {
     this.unsubscribe()
@@ -38,9 +38,14 @@ export default class Users extends React.Component {
       })
   }
 
+  onEditUser(user) {
+    const action = selectUser(user)
+    store.dispatch(action)
+  }
+
   render() {
     const { users } = this.state
-    const { onDeleteUser } = this
+    const { onDeleteUser, onEditUser } = this
     return (
       <div>
         <h2>These are our users</h2>
@@ -51,6 +56,10 @@ export default class Users extends React.Component {
             users.map( user => (
               <li key={ user.id }>
               {user.name}&nbsp;&nbsp;
+              <Link to={`/users/${user.id}`}>
+                <button onClick={() => onEditUser(user)}>Edit</button>
+              </Link>
+              &nbsp;&nbsp;
               <button onClick={() => onDeleteUser(user.id)}>Delete</button>
               <br /><br />
               </li>
