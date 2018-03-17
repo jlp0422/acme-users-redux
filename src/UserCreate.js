@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
-import store, { changeUserName, addUser } from './store';
+import store, { changeUserName, addUser, getAllUsers } from './store';
 
 export default class UserCreate extends React.Component {
   constructor() {

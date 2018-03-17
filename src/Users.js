@@ -22,6 +22,7 @@ export default class Users extends React.Component {
     this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState())
     })
+    console.log(this.state)
   }
 
   componentWillUnmount() {

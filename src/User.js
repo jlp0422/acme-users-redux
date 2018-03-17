@@ -12,6 +12,7 @@ export default class User extends React.Component {
   }
 
   componentDidMount() {
+
     this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState())
     })

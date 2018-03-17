@@ -13,9 +13,9 @@ const sync = () => {
 
 const seed = () => {
   return Promise.all([
-    User.create({ name: 'Charles' }),
-    User.create({ name: 'Lucy' }),
-    User.create({ name: 'Marek' })
+    User.create({ name: 'Frank' }),
+    User.create({ name: 'Tyus' }),
+    User.create({ name: 'Oshae' })
   ])
 }
 

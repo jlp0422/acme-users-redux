@@ -21059,6 +21059,10 @@ var _Nav = __webpack_require__(127);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
+var _Products = __webpack_require__(128);
+
+var _Products2 = _interopRequireDefault(_Products);
+
 var _store = __webpack_require__(15);
 
 var _store2 = _interopRequireDefault(_store);
@@ -21100,7 +21104,7 @@ var App = function (_React$Component) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      this.unsubscribe;
+      this.unsubscribe();
     }
   }, {
     key: 'render',
@@ -21126,7 +21130,8 @@ var App = function (_React$Component) {
               _react2.default.createElement(_reactRouterDom.Route, { path: '/users/create', exact: true, component: _UserCreate2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/users/:id', exact: true, component: _User2.default })
             ),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/users', exact: true, component: _Users2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/users', exact: true, component: _Users2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/products', exact: true, component: _Products2.default })
           )
         )
       );
@@ -24857,6 +24862,7 @@ var Users = function (_React$Component) {
       this.unsubscribe = _store2.default.subscribe(function () {
         _this2.setState(_store2.default.getState());
       });
+      console.log(this.state);
     }
   }, {
     key: 'componentWillUnmount',
@@ -26585,6 +26591,33 @@ var Nav = function Nav() {
 };
 
 exports.default = Nav;
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Products = function Products() {
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'WE ARE ALL OUT OF PRODUCTS'
+  );
+};
+
+exports.default = Products;
 
 /***/ })
 /******/ ]);

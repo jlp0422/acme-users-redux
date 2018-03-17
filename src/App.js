@@ -5,8 +5,9 @@ import Users from './Users'
 import User from './User'
 import UserCreate from './UserCreate'
 import Nav from './Nav';
+import Products from './Products';
 import store from './store';
-import axios from 'axios'
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor() {
@@ -16,11 +17,10 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-
   }
 
   componentWillUnmount() {
-    this.unsubscribe
+    this.unsubscribe()
   }
 
   render() {
@@ -36,6 +36,7 @@ export default class App extends React.Component {
               <Route path='/users/:id' exact component={ User } />
             </Switch>
             <Route path='/users' exact component={ Users }/>
+            <Route path='/products' exact component={ Products } />
           </div>
         </Router>
 
