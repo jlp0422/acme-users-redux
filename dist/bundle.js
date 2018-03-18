@@ -24903,9 +24903,10 @@ var Users = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
-          'These are our users'
+          'These are our users, we have ',
+          users.length,
+          ' of them'
         ),
-        _react2.default.createElement(_UserCreate2.default, null),
         _react2.default.createElement(
           'ul',
           { className: 'list-group' },
@@ -26528,8 +26529,14 @@ var User = function (_React$Component) {
         _react2.default.createElement('input', { className: 'form-control', value: newName, onChange: onChange }),
         _react2.default.createElement(
           'button',
-          { style: { marginTop: 10 }, className: 'btn btn-primary' },
+          { style: { marginTop: 10 }, className: 'btn btn-success' },
           'Save User'
+        ),
+        '\xA0\xA0',
+        _react2.default.createElement(
+          'button',
+          { style: { marginTop: 10 }, className: 'btn btn-outline-info' },
+          'Cancel Edit'
         )
       );
     }

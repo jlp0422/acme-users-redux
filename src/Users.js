@@ -48,8 +48,7 @@ export default class Users extends React.Component {
     const { onDeleteUser, onEditUser } = this
     return (
       <div>
-        <h2>These are our users</h2>
-        <UserCreate />
+        <h2>These are our users, we have { users.length } of them</h2>
         <ul className="list-group">
           {
             users &&

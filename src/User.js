@@ -51,7 +51,9 @@ export default class User extends React.Component {
     return (
       <form className="form-group" onSubmit={ onSaveUser }>
         <input className="form-control" value={ newName } onChange={ onChange }/>
-        <button style={{ marginTop: 10 }}className="btn btn-primary">Save User</button>
+        <button style={{ marginTop: 10 }} className="btn btn-success">Save User</button>
+        &nbsp;&nbsp;
+        <button style={{ marginTop: 10 }} className="btn btn-outline-info">Cancel Edit</button>
       </form>
     )
   }
